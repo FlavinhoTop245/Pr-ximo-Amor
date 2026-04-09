@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-brand">
-        <img src="/logo.png" alt="Logo Árvore" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '50%', backgroundColor: 'transparent' }} />
+        <img src="./logo.png" alt="Logo Árvore" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '50%', backgroundColor: 'transparent' }} />
         Próximo Amor
       </div>
       <div className="nav-links">
