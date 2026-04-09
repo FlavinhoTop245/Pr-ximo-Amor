@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { HeartHandshake, Briefcase, User, MessageSquare, Bell, Search, Star, MessageCircle, MapPin, Building2, CheckCircle2 } from 'lucide-react';
 
 const Navbar = () => {
@@ -9,9 +9,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-brand">
-        <div className="nav-brand-icon">
-          <HeartHandshake size={24} />
-        </div>
+        <img src="/logo.png" alt="Logo Árvore" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '50%', backgroundColor: 'transparent' }} />
         Próximo Amor
       </div>
       <div className="nav-links">
