@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bell, User } from 'lucide-react';
+import { Bell, User, Heart } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -9,7 +9,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="nav-brand" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <img src="./logo.png" alt="Logo Árvore" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '50%', backgroundColor: 'transparent' }} />
+        <div style={{ backgroundColor: 'var(--accent-white)', color: 'var(--primary-dark)', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+          <Heart size={24} fill="currentColor" />
+        </div>
         Próximo Amor
       </Link>
       <div className="nav-links">
