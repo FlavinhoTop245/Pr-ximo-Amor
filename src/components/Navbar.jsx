@@ -8,10 +8,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="nav-brand">
+      <Link to="/" className="nav-brand" style={{ textDecoration: 'none', color: 'inherit' }}>
         <img src="./logo.png" alt="Logo Árvore" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '50%', backgroundColor: 'transparent' }} />
         Próximo Amor
-      </div>
+      </Link>
       <div className="nav-links">
         <Link to="/sobre-nos" className={path === '/sobre-nos' || path === '/' ? 'active' : ''}>Sobre Nós</Link>
         <Link to="/vagas" className={path === '/vagas' ? 'active' : ''}>Vagas</Link>
