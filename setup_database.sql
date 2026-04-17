@@ -85,3 +85,52 @@ CREATE POLICY "Permitir leitura pública para notificacoes" ON public.notificaco
 
 DROP POLICY IF EXISTS "Permitir inserção pública para notificacoes" ON public.notificacoes;
 CREATE POLICY "Permitir inserção pública para notificacoes" ON public.notificacoes FOR INSERT WITH CHECK (true);
+-- Tabela de Empresas
+CREATE TABLE IF NOT EXISTS public.empresas (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    nome TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    senha TEXT NOT NULL,
+    descricao TEXT,
+    logo_url TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Tabela de Candidaturas (Voluntários interessados em vagas)
+CREATE TABLE IF NOT EXISTS public.candidaturas (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    vaga_id UUID REFERENCES public.vagas(id) ON DELETE CASCADE,
+    perfil_id UUID REFERENCES public.perfis(id) ON DELETE CASCADE,
+    mensagem TEXT,
+    quer_contrato BOOLEAN DEFAULT false,
+    status TEXT DEFAULT 'pendente', -- pendente, aprovado, recusado
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Tabela de Contratações e Feedback
+CREATE TABLE IF NOT EXISTS public.contratacoes (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    vaga_id UUID REFERENCES public.vagas(id),
+    perfil_id UUID REFERENCES public.perfis(id),
+    empresa_id UUID REFERENCES public.empresas(id),
+    status TEXT DEFAULT 'ativo', -- ativo, finalizado
+    feedback_empresa TEXT,
+    feedback_nota INTEGER CHECK (feedback_nota >= 1 AND feedback_nota <= 5),
+    data_contratacao TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Dando permissões anônimas (Apenas para desenvolvimento)
+ALTER TABLE public.empresas ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.candidaturas ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.contratacoes ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Leitura pública empresas" ON public.empresas FOR SELECT USING (true);
+CREATE POLICY "Inserção pública empresas" ON public.empresas FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Leitura pública candidaturas" ON public.candidaturas FOR SELECT USING (true);
+CREATE POLICY "Inserção pública candidaturas" ON public.candidaturas FOR INSERT WITH CHECK (true);
+CREATE POLICY "Update público candidaturas" ON public.candidaturas FOR UPDATE USING (true);
+
+CREATE POLICY "Leitura pública contratacoes" ON public.contratacoes FOR SELECT USING (true);
+CREATE POLICY "Inserção pública contratacoes" ON public.contratacoes FOR INSERT WITH CHECK (true);
+CREATE POLICY "Update público contratacoes" ON public.contratacoes FOR UPDATE USING (true);

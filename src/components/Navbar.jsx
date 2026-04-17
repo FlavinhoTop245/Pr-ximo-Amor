@@ -21,6 +21,15 @@ const Navbar = () => {
         <Link to="/mensagens" className={path === '/mensagens' ? 'active' : ''}>Mensagens</Link>
       </div>
       <div className="nav-actions">
+        <Link to="/empresa/login" className="btn-outline" style={{ 
+          padding: '0.5rem 1rem', 
+          fontSize: '0.875rem', 
+          color: 'var(--accent-white)', 
+          borderColor: 'rgba(255,255,255,0.5)',
+          background: 'rgba(255,255,255,0.1)'
+        }}>
+          Portal Empresa
+        </Link>
         <Link to="/notificacoes" className="btn-icon badge">
           <Bell size={20} />
         </Link>
