@@ -1,9 +1,9 @@
 :root {
   /* Brand Colors - Vibrant Cyan/Turquoise */
-  --primary: #00B4D8;
-  --primary-dark: #0096C7;
-  --primary-light: #48CAE4;
-  --primary-ultra-light: #ADE8F4;
+  --primary: #38b6ff;
+  --primary-dark: #2fa3e6;
+  --primary-light: #6ed3ff;
+  --primary-ultra-light: #bceaff;
   
   /* Text and Background Colors */
   --bg-color: #F8F9FA;

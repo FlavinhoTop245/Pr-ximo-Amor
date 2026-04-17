@@ -2,6 +2,8 @@ import React from 'react';
 import { Bell, User, Heart } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
+import logo from '../assets/logo.png';
+
 const Navbar = () => {
   const location = useLocation();
   const path = location.pathname;
@@ -9,9 +11,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="nav-brand" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <div style={{ backgroundColor: 'var(--accent-white)', color: 'var(--primary-dark)', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-          <Heart size={24} fill="currentColor" />
-        </div>
+        <img src={logo} alt="Logo Próximo Amor" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
         Próximo Amor
       </Link>
       <div className="nav-links">
