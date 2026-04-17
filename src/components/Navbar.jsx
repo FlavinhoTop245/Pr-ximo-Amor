@@ -33,9 +33,9 @@ const Navbar = () => {
         <Link to="/notificacoes" className="btn-icon badge">
           <Bell size={20} />
         </Link>
-        <button className="btn-icon">
+        <Link to="/login" className="btn-icon">
           <User size={20} />
-        </button>
+        </Link>
       </div>
     </nav>
   );

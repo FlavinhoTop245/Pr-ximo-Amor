@@ -12,6 +12,8 @@ import Perfil from './pages/Perfil';
 import Mensagens from './pages/Mensagens';
 import Notificacoes from './pages/Notificacoes';
 import NovaVaga from './pages/NovaVaga';
+import VagaDetalhes from './pages/VagaDetalhes';
+import AuthVoluntario from './pages/AuthVoluntario';
 import AuthEmpresa from './pages/AuthEmpresa';
 import DashboardEmpresa from './pages/DashboardEmpresa';
 import GestaoCandidatos from './pages/GestaoCandidatos';
@@ -27,8 +29,10 @@ function App() {
           <Route path="/" element={<SobreNos />} />
           <Route path="/sobre-nos" element={<SobreNos />} />
           <Route path="/vagas" element={<Vagas />} />
+          <Route path="/vagas/:id" element={<VagaDetalhes />} />
           <Route path="/nova-vaga" element={<NovaVaga />} />
           <Route path="/perfil" element={<Perfil />} />
+          <Route path="/login" element={<AuthVoluntario />} />
           <Route path="/mensagens" element={<Mensagens />} />
           <Route path="/notificacoes" element={<Notificacoes />} />
           

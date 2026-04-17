@@ -74,7 +74,13 @@ const Vagas = () => {
                                 <Briefcase size={16} /> Duração: {vaga.duracao}
                             </p>
                             
-                            <button className="btn-outline" style={{ width: '100%' }}>Ver Detalhes</button>
+                            <button 
+                                className="btn-outline" 
+                                style={{ width: '100%' }}
+                                onClick={() => navigate(`/vagas/${vaga.id}`)}
+                            >
+                                Ver Detalhes
+                            </button>
                         </div>
                     ))}
                 </div>

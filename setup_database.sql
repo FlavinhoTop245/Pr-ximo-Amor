@@ -14,7 +14,10 @@ CREATE TABLE IF NOT EXISTS public.vagas (
 CREATE TABLE IF NOT EXISTS public.perfis (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     nome TEXT NOT NULL,
-    titulo_profissional TEXT NOT NULL,
+    email TEXT UNIQUE,
+    senha TEXT,
+    titulo_profissional TEXT,
+    experiencias TEXT,
     horas_amor INTEGER DEFAULT 0,
     avaliacao NUMERIC(3, 1) DEFAULT 0.0,
     causas_ajudadas INTEGER DEFAULT 0,
